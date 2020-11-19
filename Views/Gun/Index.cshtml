@@ -1,0 +1,32 @@
+﻿@model List<PO7.Models.Gun>;
+@{
+    ViewData["Title"] = "Bronie";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Lista broni</h1>
+    <a class="btn btn-color" href="/Gun/Add">Dodaj</a>
+    <table class="table table-light table-responsive-md rounded">
+        <thead>
+            <tr>
+                <th>Nazwa</th>
+                <th>Kaliber</th>
+                <th>Długość lufy</th>
+                <th>Waga</th>
+                <th>Edycja</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.name</td>
+                    <td>@item.caliber</td>
+                    <td>@item.size</td>
+                    <td>@item.weight</td>
+                    <td><a class="btn btn-color" href="/Gun/Edit/@item.id">Edycja</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,32 @@
+﻿@model List<ShootingResult>
+    @{
+        ViewData["Title"] = "Strzelnica";
+    }
+
+    <div class="text-center">
+        <h1 class="display-4">Strzelnica</h1>
+        <a class="btn btn-color" href="/Shooting/Add">Dodaj</a>
+        <table class="table table-light table-responsive-md rounded">
+            <thead>
+                <tr>
+                    <th>Broń</th>
+                    <th>Dystans</th>
+                    <th>Ilość strzałów</th>
+                    <th>Ilość zdobytych punktów</th>
+                    <th>Edycja</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@(item.gun.name + " ."+ item.gun.caliber+ " "+ item.gun.size + "''")</td>
+                        <td>@item.distance</td>
+                        <td>@item.shots</td>
+                        <td>@item.points</td>
+                        <td><a class="btn btn-color" href="/shooting/edit/@item.id">Edycja</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>

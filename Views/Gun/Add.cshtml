@@ -1,0 +1,31 @@
+﻿@model Gun
+    <h1>Dodawanie</h1>
+
+    <form asp-controller="gun" asp-action="add" method="post" class="form-horizontal">
+        <a href="/Gun/Index" class="btn btn-color">Wróć</a>
+
+
+        <div class="form-group ">
+            <label asp-for="name"></label>
+            <input asp-for="name" type="text" class="form-control">
+            <small class="text-danger"><span asp-validation-for="name"></span></small>
+        </div>
+
+        <div class="form-group ">
+            <label asp-for="caliber"></label>
+            <input asp-for="caliber" type="text" class="form-control">
+            <small class="text-danger"><span asp-validation-for="caliber"></span></small>
+        </div>
+        <div class="form-group ">
+            <label asp-for="size"></label>
+            <input asp-for="size" type="text" class="form-control">
+            <small class="text-danger"><span asp-validation-for="size"></span></small>
+        </div>
+        <div class="form-group ">
+            <label asp-for="weight"></label>
+            <input asp-for="weight" type="text" class="form-control">
+            <small class="text-danger"><span asp-validation-for="weight"></span></small>
+        </div>
+
+        <div class="text-center"><button type="submit" id="submitter" class="btn btn-color">Dodaj</button></div>
+    </form>

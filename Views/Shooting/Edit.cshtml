@@ -1,0 +1,49 @@
+﻿@model ShootingResult
+@{
+    List<Gun> guns = ViewBag.GunsList;
+}
+<h1>Edycja</h1>
+
+<form asp-controller="shooting" asp-action="add" method="post" class="form-horizontal">
+    <a href="/Shooting/Index" class="btn btn-color">Wróć</a>
+    <a href="/Shooting/Delete/@Model.id" class="btn btn-color">Usuń</a>
+
+
+    <div class="form-group ">
+        <label asp-for="gunId"></label>
+        <select asp-for="gunId" class="form-control">
+            @foreach (var option in guns)
+            {
+                if (option.id == Model.gunId)
+                {
+                    <option selected value="@option.id">@(option.name + " ." +  option.caliber + " " +option.size +"''")</option>
+
+                }
+                else
+                {
+                    <option value="@option.id">@(option.name + " ." +  option.caliber + " " +option.size +"''")</option>
+
+                }
+            }
+        </select>
+        <small class="text-danger"><span asp-validation-for="gunId"></span></small>
+    </div>
+
+    <div class="form-group ">
+        <label asp-for="distance"></label>
+        <input asp-for="distance" type="text" class="form-control" value="@Model.distance">
+        <small class="text-danger"><span asp-validation-for="distance"></span></small>
+    </div>
+    <div class="form-group ">
+        <label asp-for="shots"></label>
+        <input asp-for="shots" type="text" class="form-control" value="@Model.shots">
+        <small class="text-danger"><span asp-validation-for="shots"></span></small>
+    </div>
+    <div class="form-group ">
+        <label asp-for="points"></label>
+        <input asp-for="points" type="text" class="form-control" value="@Model.points">
+        <small class="text-danger"><span asp-validation-for="points"></span></small>
+    </div>
+
+    <div class="text-center"><button type="submit" id="submitter" class="btn btn-color">Edytuj</button></div>
+</form>
